@@ -2,6 +2,8 @@
 //Creare classi per i rettangoli e le figure composte, con metodi per aggiungere, rimuovere, modificare rettangoli e calcolare l'area e il perimetro delle figure composte.
 
 
+using System.Security.Cryptography.X509Certificates;
+
 public class Rettangolo
 {
     public double Lunghezza { get; set; }
@@ -11,15 +13,15 @@ public class Rettangolo
         Lunghezza = Lunghezza;
         Altezza = Altezza;
     }
-    public double AreaTotale(double lunghezza, double Altezza)
+    public double Area(double lunghezza, double Altezza)
     {
 
-        return lunghezza * Altezza;
+        return Lunghezza * Altezza;
 
 
     }
 
-    public double PerimetroTotale()
+    public double Perimetro()
     {
 
         return 2 * (Lunghezza + Altezza);
@@ -51,16 +53,35 @@ public class Composta
       }
 
     }
-    public void ModifyRektMeas(Rettangolo rettangolo)
+    public void ModifyRektMeas(Rettangolo rettangolo, double newaltezza, int newlunghezza)
     {
-      for (int i = 0;i<rettangolos.Count;i++)
-      {
+      
+     for (int i = 0;i< rettangolos.Count;i++) 
+     { 
+        
+       if (rettangolos[i].Lunghezza==rettangolo.Lunghezza && rettangolos[i].Altezza == rettangolo.Altezza) 
+       {
 
+                rettangolos[i].Altezza = newaltezza;
+                rettangolos[i].Lunghezza= newlunghezza;
+            
+       } 
        
+        
+     }
 
-      }
 
+    }
+    public double CalculateAreaTotale() 
+    {
+      double somma = 0;
+     foreach( Rettangolo rekt in rettangolos ) 
+     {
 
-
+      rekt.Area();
+      somma += rekt.Area();  
+        
+     }
+     return somma;
     }
 }
