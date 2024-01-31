@@ -45,12 +45,16 @@ class Program
 {
     static void Main()
     {
-        // Esempio di utilizzo delle classi
+        // Creazione di diverse istanze di Veicolo, Auto e Moto
+        Veicolo veicoloGenerale = new Veicolo { Marca = "Generica", Modello = "Veicolo" };
         Auto auto = new Auto { Marca = "Toyota", Modello = "Corolla", NumeroPorte = 4 };
         Moto moto = new Moto { Marca = "Honda", Modello = "CBR600RR", HaCasco = true };
 
+        // Chiamata al metodo Descrizione() su ciascuna istanza
+        Console.WriteLine(veicoloGenerale.Descrizione());
         Console.WriteLine(auto.Descrizione());
         Console.WriteLine(moto.Descrizione());
     }
 }
+
 
